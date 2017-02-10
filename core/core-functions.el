@@ -55,4 +55,8 @@ current buffer directory."
             (neotree-find file-name))))))
 
 
+(defadvice org-capture (around split-vertically activate)
+  (let ((split-width-threshold 80))  ; or whatever width makes sense for you
+    ad-do-it))
+
 (provide 'core-functions)

@@ -64,11 +64,42 @@
   ("C-c ;" . mc/skip-to-next-like-this))
 
 
+(use-package org
+  :config
+  (setq org-directory "~/org"
+        org-agenda-files (list "work.org"))
+  (org-babel-do-load-languages
+   'org-babel-load-languages '((ruby . t)))
+  :bind
+  ("\C-cl" . org-store-link)
+  ("\C-ca" . org-agenda))
+
+(use-package org-projectile
+  :bind (("C-c n p" . org-projectile:project-todo-completing-read)
+         ("C-c c" . org-capture))
+  :config
+  (progn
+    (org-projectile:per-repo)
+    (setq org-projectile:per-repo-filename "todo.org"
+	org-agenda-files (append org-agenda-files (org-projectile:todo-files)))
+    (add-to-list 'org-capture-templates (org-projectile:project-todo-entry "p")))
+  :ensure t)
+
+(use-package org-bullets
+  :config
+  (setq org-hide-leading-stars t)
+  (add-hook 'org-mode-hook
+            (lambda ()
+              (org-bullets-mode t))))
+
+
 (use-package projectile
   :config
   (setq projectile-enable-caching t
 	projectile-cache-file (expand-file-name "projectile.cache" temp-dir)
-	projectile-known-projects-file (expand-file-name "projectile-bookmarks.eld" temp-dir))
+	projectile-known-projects-file (expand-file-name "projectile-bookmarks.eld" temp-dir)
+	projectile-globally-ignored-files (append '("*.txt" "*.o" "*.so" "*.log") projectile-globally-ignored-files)
+	projectile-globally-ignored-directories (append '("tmp") projectile-globally-ignored-files))
   (setq projectile-completion-system 'ivy)
   (projectile-global-mode))
 
