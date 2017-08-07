@@ -28,4 +28,5 @@
 
 (require 'core-ruby)
 (require 'core-web)
+(require 'core-elixir)
 (require 'core-modeline)

@@ -4,7 +4,7 @@
 
 ;;; Code:
 
-(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
+(add-to-list 'package-archives (cons "melpa" "https://melpa.org/packages/") t)
 
 (package-initialize)
 
@@ -83,13 +83,10 @@
 (when (  fboundp 'scroll-bar-mode)
   (scroll-bar-mode -1))
 
-;; Env vars
-(setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin/:$GOPATH"))
-(setenv "SHELL" "/bin/zsh")
 
 (show-paren-mode 1)
 
-;;(desktop-save-mode 1)
+(desktop-save-mode 1)
 
 ;; Delete trailing whitespace before save
 (add-hook 'before-save-hook 'delete-trailing-whitespace)

@@ -16,6 +16,7 @@
   (require 'rubocop)
   (global-flycheck-mode))
 
+(use-package yaml-mode)
 
 (provide 'core-ruby)
 

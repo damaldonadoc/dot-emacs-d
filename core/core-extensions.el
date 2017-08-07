@@ -1,3 +1,9 @@
+;;; package --- extensions configs
+;;; Commentary:
+;;; Contains my extensions configs
+
+;;; Code:
+
 (use-package counsel
   :bind
   ("M-x" . counsel-M-x)
@@ -55,13 +61,7 @@
 
 (use-package multiple-cursors
   :config
-  (setq mc/list-file (concat temp-dir "/.mc-lists.el"))
-  :bind
-  ;;("C-M-c C-M-c" . mc/edit-lines)
-  ("C->" . mc/mark-next-like-this)
-  ("C-<" . mc/mark-previous-like-this)
-  ("C-c C->" . mc/mark-all-like-this)
-  ("C-c ;" . mc/skip-to-next-like-this))
+  (setq mc/list-file (concat temp-dir "/.mc-lists.el")))
 
 
 (use-package org
@@ -108,9 +108,8 @@
   :config
   (require 'smartparens-config)
   (smartparens-global-mode)
-  (sp-pair "%" "%" :wrap "C-%")
-  (sp-pair "<" ">" :wrap "C->"))
-
+  (sp-pair "%" "%")
+  (sp-pair "<" ">"))
 
 (use-package redo+
   :config

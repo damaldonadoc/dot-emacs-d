@@ -1,37 +1,24 @@
-;; `window-divider-mode' gives us finer control over the border between windows.
-;; The native border "consumes" a pixel of the fringe on righter-most splits (in
-;; Yamamoto's emacs-mac at least), window-divider does not. You can also control
-;; vertical borders between windows (introduced in Emacs 25.1+)
-(when (boundp 'window-divider-mode)
-  (setq window-divider-default-places t
-        window-divider-default-bottom-width 1
-        window-divider-default-right-width 1)
-  (window-divider-mode +1))
+;;; package --- ui configs
+;;; Commentary:
+;;; Contains my ui configs
 
+;;; Code:
+
+;; doom theme
 (use-package doom-themes
-  :config
+  :init
   (load-theme 'doom-one t)
-  (let ((c '((class color) (min-colors 89)))
-      (black          "#181e26")
-      (white          "#DFDFDF")
-      (blue           "#51afef"))
+  :config
+  (doom-themes-neotree-config)
 
-    (custom-theme-set-faces
-     'doom-one
-     ;; Doom faces
-     `(show-paren-match          ((,c (:foreground ,black :background ,white))))
-     ;; Ivy
-     `(ivy-current-match         ((,c (:background ,blue))))
-     ;; org-mode
-     `(org-level-2               ((,c (:foreground ,blue))))
-     `(org-level-3               ((,c (:foreground ,white))))
-     `(org-level-4               ((,c (:foreground ,white))))
-     `(org-level-5               ((,c (:foreground ,white))))
-     `(org-level-6               ((,c (:foreground ,white))))))
-  (require 'doom-neotree)
-  (add-hook 'minibuffer-setup-hook 'doom-brighten-minibuffer)
-  (add-hook 'find-file-hook 'doom-buffer-mode))
+  (setq
+   doom-themes-enable-bold t
+   doom-themes-enable-italic t
+   doom-one-brighter-comments t
+   doom-neotree-file-icons t))
 
+
+;; git gutter config
 (use-package git-gutter-fringe)
 
 (use-package git-gutter
@@ -55,6 +42,7 @@
 
 (define-fringe-bitmap 'flycheck-fringe-bitmap-double-arrow
   [0 0 0 0 0 4 12 28 60 124 252 124 60 28 12 4 0 0 0 0])
+
 
 ;; Custom line number stuff
 (set-face-attribute 'fringe nil)
@@ -80,6 +68,7 @@
   (set-face-background 'highlight-indentation-current-column-face "grey30"))
 
 
+;; parens match config
 (set-face-foreground 'show-paren-match "#ff6c6b")
 (set-face-background 'show-paren-match nil)
 
@@ -87,16 +76,5 @@
   '(set-face-foreground 'web-mode-current-element-highlight-face "#ff6c6b"))
 (eval-after-load "web-mode"
   '(set-face-background 'web-mode-current-element-highlight-face nil))
-
-
-;; Removes *scratch* from buffer after the mode has been set.
-(defun remove-scratch-buffer ()
-  (if (get-buffer "*scratch*")
-      (kill-buffer "*scratch*")))
-(add-hook 'after-change-major-mode-hook 'remove-scratch-buffer)
-
-;; Removes *messages* from the buffer.
-(setq-default message-log-max nil)
-(kill-buffer "*Messages*")
 
 (provide 'core-ui)

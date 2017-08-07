@@ -30,6 +30,12 @@
 
 (global-set-key (kbd "M-S-<up>") 'mc/mark-previous-like-this)
 (global-set-key (kbd "M-S-<down>") 'mc/mark-next-like-this)
+(global-set-key (kbd "C->") 'mc/mark-next-like-this)
+(global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
+(global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
+
 (global-set-key (kbd "C-\\") 'neotree-project-root-dir-or-current-dir)
+
+(global-set-key (kbd "C-x g d") 'git-gutter:popup-diff)
 
 (provide 'core-keys)
