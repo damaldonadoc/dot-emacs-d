@@ -99,23 +99,24 @@
                (/= text-scale-mode-amount 0)
                (format " (%+d)" text-scale-mode-amount))))
 
-(defun *buffer-encoding-abbrev ()
-  "The line ending convention used in the buffer."
-  (if (memq buffer-file-coding-system '(utf-8 utf-8-unix))
-      ""
-    (symbol-name buffer-file-coding-system)))
-
-(defface mode-line-vcs-info nil '((t (:inherit warning))) :group 'epresent)
-(defface mode-line-vcs-warning nil '((t (:inherit warning))) :group 'epresent)
+(defface mode-line-vcs-info '((t (:inherit success)))
+"")
+(defface mode-line-vcs-warning '((t (:inherit warning)))
+"")
+(defface mode-line-vcs-error '((t (:inherit error)))
+"")
 (defun *vc ()
   "Displays the current branch, colored based on its state."
   (when vc-mode
     (let ((backend (concat " " (substring vc-mode (+ 2 (length (symbol-name (vc-backend buffer-file-name)))))))
           (face (let ((state (vc-state buffer-file-name)))
-                  (cond ((memq state '(edited added))
-                         'mode-line-vcs-info)
-                        ((memq state '(removed needs-merge needs-update conflict removed unregistered))
-                         'mode-line-vcs-warning)))))
+                  (cond
+		   ((memq state '(up-to-date))
+		    'mode-line-vcs-info)
+		   ((memq state '(edited added))
+		    'mode-line-vcs-warning)
+		   ((memq state '(removed needs-merge needs-update conflict removed unregistered))
+		    'mode-line-vcs-error)))))
       (if active
           (propertize backend 'face face)
         backend))))
@@ -149,12 +150,6 @@
                                                    'doom-flycheck-warning
                                                  'mode-line))))))))))
 
-(defun *macro-recording ()
-  "Show when recording macro."
-  (when (and active defining-kbd-macro)
-    (propertize
-     (format " %s ▶ " (char-to-string evil-this-macro))
-     'face 'mode-line-highlight)))
 
 (defun *buffer-position ()
   "A more vim-like buffer position."
@@ -175,7 +170,6 @@
     (let* ((active (eq (selected-window) mode-line-selected-window))
            (lhs (list (propertize " " 'display (if active mode-line-bar mode-line-inactive-bar))
                       (*flycheck)
-                      (*macro-recording)
                       " "
                       (*buffer-path)
                       (*buffer-name)
