@@ -35,6 +35,7 @@
 (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
 
 (global-set-key (kbd "C-\\") 'neotree-project-root-dir-or-current-dir)
+(global-set-key (kbd "C-\º") 'neotree-project-root-dir-or-current-dir)
 
 (global-set-key (kbd "C-x g d") 'git-gutter:popup-diff)
 

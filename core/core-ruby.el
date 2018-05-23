@@ -18,6 +18,9 @@
 
 (use-package yaml-mode)
 
+
+(setq ruby-insert-encoding-magic-comment nil)
+
 (provide 'core-ruby)
 
 ;;; core-ruby.el ends here

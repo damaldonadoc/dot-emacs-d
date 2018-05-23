@@ -30,6 +30,9 @@
 (prefer-coding-system        'utf-8)   ; with sugar on top
 (setq default-process-coding-system '(utf-8-unix . utf-8-unix))
 
+;;; Prevent Extraneous Tabs
+(setq-default indent-tabs-mode nil)
+
 (fset 'yes-or-no-p 'y-or-n-p)
 (global-auto-revert-mode t)
 
@@ -64,7 +67,6 @@
  ;; Backups disabled
  backup-inhibited                   t
  make-backup-files                  nil
- indent-tabs-mode                   nil
  inhibit-startup-message            t
  fringes-outside-margins            t
  x-select-enable-clipboard          t
@@ -86,11 +88,14 @@
 
 (show-paren-mode 1)
 
-(desktop-save-mode 1)
+;; (desktop-save-mode 1)
 
 ;; Delete trailing whitespace before save
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 (add-to-list 'auto-mode-alist '("\\.psql$" . sql-mode))
+
+;; set title to current directory
+(setq frame-title-format '((:eval default-directory)))
 
 (provide 'core)
 ;;; core ends here
