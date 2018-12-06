@@ -15,6 +15,9 @@
 (global-set-key (kbd "C-a") 'mark-whole-buffer)
 (global-set-key (kbd "C-w") 'kill-buffer)
 (global-set-key (kbd "C-;") 'comment-or-uncomment-region)
+(global-set-key (kbd "C-z") 'undo)
+
+(global-set-key (kbd "C-c s") 'yas-insert-snippet)
 
 (global-set-key (kbd "C-f") 'isearch-forward)
 (global-set-key (kbd "C-S-f") 'projectile-grep)

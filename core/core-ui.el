@@ -20,6 +20,7 @@
 
 ;; git gutter config
 (use-package git-gutter-fringe)
+(set-face-foreground 'git-gutter-fr:modified "orange")
 
 (use-package git-gutter
   :config

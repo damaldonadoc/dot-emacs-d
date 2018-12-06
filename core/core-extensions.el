@@ -111,13 +111,6 @@
   (sp-pair "%" "%")
   (sp-pair "<" ">"))
 
-(use-package redo+
-  :config
-  (setq undo-no-redo t)
-  :bind
-  ("C-z" . undo)
-  ("C-y" . redo))
-
 
 (use-package windmove
   :bind

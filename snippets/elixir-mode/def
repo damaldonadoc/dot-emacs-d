@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: def
+# key: def
+# --
+@doc """
+${1:doc}
+"""
+def ${2:function}(${3:args}) do
+$0
+end

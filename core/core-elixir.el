@@ -8,6 +8,8 @@
   :config
   (add-hook 'after-init-hook 'global-company-mode))
 
+(use-package elixir-yasnippets)
+
 (provide 'core-elixir)
 
 ;;; core-elixir.el ends here
