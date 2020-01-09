@@ -97,5 +97,11 @@
 ;; set title to current directory
 (setq frame-title-format '((:eval default-directory)))
 
+(setq mac-command-modifier 'control)
+(set-face-attribute 'default nil :height 140)
+
+(setq c-default-style "bsd"
+  c-basic-offset 4)
+
 (provide 'core)
 ;;; core ends here

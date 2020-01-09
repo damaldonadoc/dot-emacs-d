@@ -18,6 +18,9 @@
 
 (use-package yaml-mode)
 
+(use-package region-occurrences-highlighter
+  :config
+  (add-hook 'ruby-mode-hook 'region-occurrences-highlighter-mode))
 
 (setq ruby-insert-encoding-magic-comment nil)
 

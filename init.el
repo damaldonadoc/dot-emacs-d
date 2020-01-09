@@ -29,4 +29,8 @@
 (require 'core-ruby)
 (require 'core-web)
 (require 'core-elixir)
+(require 'core-crystal)
+(require 'core-ts)
 (require 'core-modeline)
+(put 'upcase-region 'disabled nil)
+(put 'downcase-region 'disabled nil)

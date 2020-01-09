@@ -3,8 +3,8 @@
 
 
 ;; navigate in buffers
-(global-set-key [C-iso-lefttab] 'switch-to-prev-buffer)
-(global-set-key [C-tab] 'switch-to-next-buffer)
+(global-set-key [C-S-tab] 'previous-buffer)
+(global-set-key [C-tab] 'next-buffer)
 
 
 ;; personal shortcuts
@@ -19,17 +19,22 @@
 
 (global-set-key (kbd "C-c s") 'yas-insert-snippet)
 
-(global-set-key (kbd "C-f") 'isearch-forward)
-(global-set-key (kbd "C-S-f") 'projectile-grep)
+;(global-set-key (kbd "C-f") 'isearch-forward)
+(global-set-key (kbd "C-f") 'swiper)
+(global-set-key (kbd "C-S-f") 'zrgrep)
 
-(add-hook 'isearch-mode-hook
- (lambda ()
- (define-key isearch-mode-map (kbd "C-f") 'isearch-repeat-forward)
- )
-)
-
+;; (add-hook 'isearch-mode-hook
+;;  (lambda ()
+;;    (define-key isearch-mode-map (kbd "C-f") 'isearch-repeat-forward)
+;;  )
+;; )
 (global-set-key (kbd "M-<up>") 'move-text-up)
 (global-set-key (kbd "M-<down>") 'move-text-down)
+
+(global-set-key (kbd "<home>") 'beginning-of-line)
+(global-set-key (kbd "<end>") 'beginning-of-line)
+(global-set-key (kbd "M-<home>") 'beginning-of-buffer)
+(global-set-key (kbd "M-<end>") 'end-of-buffer)
 
 (global-set-key (kbd "M-S-<up>") 'mc/mark-previous-like-this)
 (global-set-key (kbd "M-S-<down>") 'mc/mark-next-like-this)
