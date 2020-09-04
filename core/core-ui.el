@@ -4,6 +4,8 @@
 
 ;;; Code:
 
+(use-package all-the-icons)
+
 ;; doom theme
 (use-package doom-themes
   :init
@@ -14,8 +16,8 @@
   (setq
    doom-themes-enable-bold t
    doom-themes-enable-italic t
-   doom-one-brighter-comments t
-   doom-neotree-file-icons t))
+   doom-themes-one-brighter-comments t
+   doom-themes-neotree-file-icons t))
 
 
 ;; git gutter config

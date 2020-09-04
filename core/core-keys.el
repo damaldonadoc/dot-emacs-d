@@ -3,7 +3,7 @@
 
 
 ;; navigate in buffers
-(global-set-key [C-S-tab] 'previous-buffer)
+(global-set-key [C-iso-lefttab] 'previous-buffer)
 (global-set-key [C-tab] 'next-buffer)
 
 
@@ -32,7 +32,7 @@
 (global-set-key (kbd "M-<down>") 'move-text-down)
 
 (global-set-key (kbd "<home>") 'beginning-of-line)
-(global-set-key (kbd "<end>") 'beginning-of-line)
+(global-set-key (kbd "<end>") 'end-of-line)
 (global-set-key (kbd "M-<home>") 'beginning-of-buffer)
 (global-set-key (kbd "M-<end>") 'end-of-buffer)
 
