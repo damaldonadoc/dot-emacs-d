@@ -47,4 +47,6 @@
 
 (global-set-key (kbd "C-x g d") 'git-gutter:popup-diff)
 
+(global-set-key (kbd "C-x C-b") 'counsel-switch-buffer)
+
 (provide 'core-keys)

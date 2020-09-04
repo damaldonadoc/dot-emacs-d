@@ -28,6 +28,7 @@
 
 (require 'core-ruby)
 (require 'core-web)
+(require 'core-json)
 (require 'core-elixir)
 (require 'core-crystal)
 (require 'core-ts)

@@ -1,6 +1,6 @@
 ;;; package --- crystal configs
 ;;; Commentary:
-;;; Contains my rbuy configs
+;;; Contains my crystal configs
 
 ;;; Code:
 

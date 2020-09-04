@@ -1,3 +1,9 @@
+;;; package --- web configs
+;;; Commentary:
+;;; Contains my web configs
+
+;;; Code:
+
 (use-package web-mode
   :config
   (setq web-mode-markup-indent-offset 2
@@ -26,3 +32,5 @@
          ("\\.jsx\\'" . web-mode)))
 
 (provide 'core-web)
+
+;;; core-web ends here

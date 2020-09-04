@@ -1,6 +1,6 @@
 ;;; package --- ruby configs
 ;;; Commentary:
-;;; Contains my rbuy configs
+;;; Contains my ruby configs
 
 ;;; Code:
 
@@ -12,11 +12,15 @@
 
 
 (use-package rubocop
+  :ensure t
+  :defer t
+  :init (add-hook 'ruby-mode-hook 'rubocop-mode)
   :config
-  (require 'rubocop)
   (global-flycheck-mode))
 
 (use-package yaml-mode)
+
+(use-package ruby-hash-syntax)
 
 (use-package region-occurrences-highlighter
   :config
