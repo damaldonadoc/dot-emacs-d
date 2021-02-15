@@ -1,9 +1,13 @@
+;;; package --- ui configs
+;;; Commentary:
 
-;; Set global keys not specific to a certain package
+;; Set global keybindings
 
+;;; Code:
 
 ;; navigate in buffers
 (global-set-key [C-iso-lefttab] 'previous-buffer)
+(global-set-key [C-S-tab] 'previous-buffer)
 (global-set-key [C-tab] 'next-buffer)
 
 
@@ -19,15 +23,9 @@
 
 (global-set-key (kbd "C-c s") 'yas-insert-snippet)
 
-;(global-set-key (kbd "C-f") 'isearch-forward)
 (global-set-key (kbd "C-f") 'swiper)
 (global-set-key (kbd "C-S-f") 'zrgrep)
 
-;; (add-hook 'isearch-mode-hook
-;;  (lambda ()
-;;    (define-key isearch-mode-map (kbd "C-f") 'isearch-repeat-forward)
-;;  )
-;; )
 (global-set-key (kbd "M-<up>") 'move-text-up)
 (global-set-key (kbd "M-<down>") 'move-text-down)
 
@@ -50,3 +48,5 @@
 (global-set-key (kbd "C-x C-b") 'counsel-switch-buffer)
 
 (provide 'core-keys)
+
+;;; core-keys.el ends here

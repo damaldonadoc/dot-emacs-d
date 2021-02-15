@@ -6,8 +6,7 @@
 
 (add-to-list 'package-archives (cons "melpa" "https://melpa.org/packages/") t)
 
-(package-initialize)
-
+(add-to-list 'load-path "~/.emacs.d/vendor/")
 
 (when (not package-archive-contents)
   (package-refresh-contents))
@@ -15,12 +14,14 @@
 (unless (package-installed-p 'use-package)
   (package-install 'use-package))
 
+(setq use-package-always-ensure t)
+
+
 (defconst private-dir  (expand-file-name "private" user-emacs-directory))
 (defconst temp-dir
   (format "%s/cache" private-dir)
-  "Hostname-based elisp temp directories")
+  "Hostname-based elisp temp directories.")
 
-;; Core settings
 ;; UTF-8 please
 (set-charset-priority 'unicode)
 (setq locale-coding-system   'utf-8)   ; pretty
@@ -36,22 +37,21 @@
 (fset 'yes-or-no-p 'y-or-n-p)
 (global-auto-revert-mode t)
 
+(put 'upcase-region 'disabled nil)
+(put 'downcase-region 'disabled nil)
+
 (setq
  confirm-kill-emacs 'y-or-n-p
  confirm-nonexistent-file-or-buffer  t
  save-interprogram-paste-before-kill t
- mouse-yank-at-point                 t
  require-final-newline               t
  visible-bell                       nil
  ring-bell-function                 'ignore
- custom-file                        "~/.emacs.d/.custom.el"
  ;; http://ergoemacs.org/emacs/emacs_stop_cursor_enter_prompt.html
  minibuffer-prompt-properties
  '(read-only t point-entered minibuffer-avoid-prompt face minibuffer-prompt)
- ;; persistent bookmarks
- bookmark-save-flag                 t
- bookmark-default-file              (concat temp-dir "/bookmarks")
- ;; Disable backups (that's what git/dropbox are for)
+ ;; Disable backups
+ backup-inhibited                   t
  history-length                     1000
  auto-save-default                  nil
  auto-save-list-file-name           (concat temp-dir "/autosave")
@@ -64,19 +64,15 @@
  highlight-nonselected-windows      nil
  ;; PATH
  exec-path                          (append exec-path '("/usr/local/bin/"))
- ;; Backups disabled
- backup-inhibited                   t
- make-backup-files                  nil
  inhibit-startup-message            t
  fringes-outside-margins            t
- x-select-enable-clipboard          t
- use-package-always-ensure          t
+ select-enable-clipboard            t
  vc-follow-symlinks                 t
- auto-revert-check-vc-info          nil
  frame-resize-pixelwise             t)
 
 ;; replace text on writing or yank (paste)
 (delete-selection-mode t)
+
 
 ;; Disable toolbar & menubar
 ;;(menu-bar-mode -1)
@@ -85,23 +81,14 @@
 (when (  fboundp 'scroll-bar-mode)
   (scroll-bar-mode -1))
 
-
-(show-paren-mode 1)
-
-;; (desktop-save-mode 1)
-
 ;; Delete trailing whitespace before save
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
-(add-to-list 'auto-mode-alist '("\\.psql$" . sql-mode))
 
 ;; set title to current directory
 (setq frame-title-format '((:eval default-directory)))
 
 (setq mac-command-modifier 'control)
 (set-face-attribute 'default nil :height 140)
-
-(setq c-default-style "bsd"
-  c-basic-offset 4)
 
 (provide 'core)
 ;;; core ends here

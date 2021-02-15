@@ -11,6 +11,7 @@
         web-mode-code-indent-offset 2
 	web-mode-enable-current-element-highlight t)
   (setq web-mode-enable-auto-pairing nil)
+  (add-hook 'web-mode-hook 'highlight-indentation-current-column-mode)
   (add-hook 'web-mode-hook (lambda () (electric-indent-local-mode -1)))
 
   (add-to-list 'auto-mode-alist '("\\.js\\'" . web-mode))
@@ -30,6 +31,11 @@
   :mode (("\\.html?\\'" . web-mode)
          ("\\.tsx\\'" . web-mode)
          ("\\.jsx\\'" . web-mode)))
+
+(eval-after-load "web-mode"
+  '(set-face-foreground 'web-mode-current-element-highlight-face "#ff6c6b"))
+(eval-after-load "web-mode"
+  '(set-face-background 'web-mode-current-element-highlight-face nil))
 
 (provide 'core-web)
 

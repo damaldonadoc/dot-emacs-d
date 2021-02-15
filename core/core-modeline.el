@@ -1,10 +1,11 @@
+;;; package --- modeline configs
+;;; Commentary:
+;;; Contains my modeline configs
 
-(use-package pyenv-mode)
+;;; Code:
+
+(use-package f)
 (use-package powerline)
-
-(setq org-fontify-whole-heading-line t
-      org-fontify-done-headline t
-      org-fontify-quote-and-verse-blocks t)
 
 (defun doom/project-root (&optional strict-p)
   "Get the path to the root of your project."

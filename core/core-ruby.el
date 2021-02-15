@@ -28,6 +28,8 @@
 
 (setq ruby-insert-encoding-magic-comment nil)
 
+(add-hook 'ruby-mode-hook 'highlight-indentation-mode)
+
 (provide 'core-ruby)
 
 ;;; core-ruby.el ends here
