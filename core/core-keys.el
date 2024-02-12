@@ -47,6 +47,8 @@
 
 (global-set-key (kbd "C-x C-b") 'counsel-switch-buffer)
 
+(global-set-key (kbd "C-SPC") 'company-complete)
+
 (provide 'core-keys)
 
 ;;; core-keys.el ends here

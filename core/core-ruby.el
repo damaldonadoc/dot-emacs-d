@@ -28,6 +28,18 @@
 (setq ruby-insert-encoding-magic-comment nil)
 
 
+(use-package lsp-mode
+  :ensure t
+  :hook ((ruby-mode . lsp-deferred)
+         (before-save . lsp-format-buffer))
+  :commands (lsp lsp-deferred)
+  :config
+  (setq lsp-headerline-breadcrumb-enable nil)
+  (setq lsp-json-use-lists t)
+  (setq lsp-use-native-json t)
+  (setq lsp-disabled-clients '(rubocop-ls)))
+
+
 (provide 'core-ruby)
 
 ;;; core-ruby.el ends here
