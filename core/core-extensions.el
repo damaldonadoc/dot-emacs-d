@@ -30,23 +30,23 @@
 
 (use-package multiple-cursors)
 
-
-(use-package org
+(use-package company
+  :ensure t
   :config
-  (setq org-directory "~/org"
-        org-agenda-files (list "work.org"))
-  (org-babel-do-load-languages
-   'org-babel-load-languages '((ruby . t)))
-  :bind
-  ("\C-cl" . org-store-link)
-  ("\C-ca" . org-agenda))
+  (setq company-show-numbers t)
+  (setq company-tooltip-align-annotations t)
+  ;; invert the navigation direction if the the completion popup-isearch-match
+  ;; is displayed on top (happens near the bottom of windows)
+  (setq company-tooltip-flip-when-above t)
+  (global-company-mode))
 
-(use-package org-bullets
-  :config
-  (setq org-hide-leading-stars t)
-  (add-hook 'org-mode-hook
-            (lambda ()
-              (org-bullets-mode t))))
+
+(use-package company-quickhelp
+  :ensure t
+  :init
+  (company-quickhelp-mode 1)
+  (use-package pos-tip
+    :ensure t))
 
 
 (use-package projectile

@@ -21,3 +21,4 @@
 (require 'core-crystal)
 (require 'core-ts)
 (require 'core-modeline)
+(require 'core-extras)

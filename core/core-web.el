@@ -39,4 +39,4 @@
 
 (provide 'core-web)
 
-;;; core-web ends here
+;;; core-web.el ends here

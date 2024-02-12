@@ -90,5 +90,12 @@
 (setq mac-command-modifier 'control)
 (set-face-attribute 'default nil :height 140)
 
+;; Always start a new tags list (do not accumulate a list of
+;; tags) to keep up with the convention of one TAGS per project.
+(setq tags-add-tables nil)
+
+(setq ispell-program-name "aspell")
+
 (provide 'core)
-;;; core ends here
+
+;;; core.el ends here

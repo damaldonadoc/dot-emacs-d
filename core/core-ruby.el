@@ -10,7 +10,6 @@
   (global-rbenv-mode)
   (rbenv-use-corresponding))
 
-
 (use-package rubocop
   :ensure t
   :defer t

@@ -23,16 +23,16 @@
 ;; High Light Current Line
 (global-hl-line-mode t)
 
-
 ;; git-gutter
 (use-package git-gutter
   :config
   (global-git-gutter-mode +1)
+
   (set-face-foreground 'git-gutter:modified "orange")
   (custom-set-variables
    '(git-gutter:added-sign "❙")
    '(git-gutter:modified-sign "❙")
-   '(git-gutter:deleted-sign "𝅍"))
+   '(git-gutter:deleted-sign "-"));;◢
   (add-hook 'window-configuration-change-hook #'git-gutter:update-all-windows))
 
 
