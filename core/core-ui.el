@@ -50,13 +50,6 @@
 (global-display-fill-column-indicator-mode t)
 (setq-default fill-column 80)
 
-
-(use-package highlight-indentation
-  :config
-  (set-face-background 'highlight-indentation-face "grey26")
-  (set-face-background 'highlight-indentation-current-column-face "grey30"))
-
-
 ;; parens match config
 (show-paren-mode 1)
 (set-face-foreground 'show-paren-match "#ff6c6b")
