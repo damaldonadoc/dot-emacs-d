@@ -82,6 +82,17 @@
   (add-hook 'neo-after-create-hook (lambda (&rest _) (display-line-numbers-mode -1))))
 ;(add-hook 'after-init-hook #'neotree-toggle)
 
+(use-package lsp-mode
+  :ensure t
+  :hook ((before-save . lsp-format-buffer))
+  :commands (lsp lsp-deferred)
+  :config
+  (setq lsp-headerline-breadcrumb-enable nil))
+
+ (use-package lsp-ui
+    :ensure t
+    :commands lsp-ui-mode)
+
 (provide 'core-extensions)
 
 ;;; core-extensions.el ends here
