@@ -5,6 +5,7 @@
 ;;; Code:
 
 (use-package counsel
+  :ensure t
   :bind
   ("M-x" . counsel-M-x)
   ("C-x C-f" . counsel-find-file))
@@ -51,11 +52,7 @@
 
 (use-package projectile
   :config
-  (setq projectile-enable-caching t
-	projectile-cache-file (expand-file-name "projectile.cache" temp-dir)
-	projectile-known-projects-file (expand-file-name "projectile-bookmarks.eld" temp-dir)
-	projectile-globally-ignored-files (append '("*.txt" "*.o" "*.so" "*.log") projectile-globally-ignored-files)
-	projectile-globally-ignored-directories (append '("tmp") projectile-globally-ignored-files))
+  (setq projectile-enable-caching nil)
   (setq projectile-completion-system 'ivy)
   (projectile-mode))
 
