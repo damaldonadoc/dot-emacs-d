@@ -10,9 +10,12 @@
   (tide-setup)
   (flycheck-mode +1)
   (setq flycheck-check-syntax-automatically '(save mode-enabled))
-  (eldoc-mode +1)
+  (setq-local eldoc-documentation-function nil)
   (tide-hl-identifier-mode +1)
-  (company-mode +1))
+  (company-mode +1)
+  (company-quickhelp-mode 1)
+  (add-hook 'before-save-hook #'tide-format-before-save nil t))
+
 
 
 (use-package web-mode
@@ -39,7 +42,7 @@
   :after (typescript-mode company flycheck)
   :hook ((typescript-mode . tide-setup)
          (typescript-mode . tide-hl-identifier-mode)
-         ;(before-save . tide-format-before-save)
+         (before-save . tide-format-before-save)
          ))
 
 (provide 'core-ts)
