@@ -93,6 +93,10 @@
     :ensure t
     :commands lsp-ui-mode)
 
+
+(use-package magit
+  :ensure t)
+
 (provide 'core-extensions)
 
 ;;; core-extensions.el ends here
